@@ -1,0 +1,1120 @@
+{
+  "schema_version": "1.0.0",
+  "source": "ManikaSaini/zomato-restaurant-recommendation",
+  "row_count": 41665,
+  "raw_row_count": 51717,
+  "dropped_incomplete": 10052,
+  "last_sync_at": "2026-05-24T16:36:50.801228+00:00",
+  "cache_path": "/Users/kaustubhpawar/ZOMATO-MILESTONE/src/data/cache/restaurants.parquet",
+  "cache_hit": false,
+  "budget_thresholds": {
+    "global": {
+      "p33": 350.0,
+      "p66": 600.0,
+      "sample_size": 41418
+    },
+    "per_city": {
+      "( land mark - near bank of baroda )": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "17th 'e' main khb colony koramangala 5th block": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "1st stage": {
+        "p33": 250.0,
+        "p66": 300.0,
+        "sample_size": 76
+      },
+      "1st tavarekere": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "2/14 80 feet road rmv 2nd stage new bel road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "2nd stage": {
+        "p33": 314.00000000000006,
+        "p66": 600.0,
+        "sample_size": 30
+      },
+      "2nd stage bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "31-118": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "4th b cross road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "4th block jayanagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "560035": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "5th main teachers colony koramangala block 1 bangalore 560034": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "5th phase jp nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "6th block 2nd phase banshankari 3rd stage bangalore-560085": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "7 cross": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "740 7th cross 17th b main koramangala bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "8th cross road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "adjacent to commercial street": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "akme ballet. behind the soul space arena mall. dodanekundi. outer ring road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "amruthahalli main road bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "ashok nagar": {
+        "p33": 177.50000000000003,
+        "p66": 500.0,
+        "sample_size": 36
+      },
+      "austin town": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "b-1 stage": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "balaji nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "banashankari": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "banashankari 1st stage": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "banaswadi": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "banaswadi (next to indian bank) bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalor": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 39636
+      },
+      "bangalore (near rayasandra lake)": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore (opp: nethradhama eye hospital)": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore - 560102": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore - 560103": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore -560034": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore 4th block": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore 560 076.": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore 560032": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore 560076": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore 560094": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore 76": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore electronic city": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore jayanagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore koramangala 7th block": {
+        "p33": 557.0,
+        "p66": 1500.0,
+        "sample_size": 30
+      },
+      "bangalore land mark above mahaveer hard ware": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore landmark dorothy?s kitchen": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore landmark: opposite to church": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore near vinayaka two wheelers services centre and srinivasa signature bellandur": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore next to just bake": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore opp. royal legend apartments": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore richmond road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore-560078": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore.": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bangalore:560068": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bannerghatta main rd": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bannerghatta road": {
+        "p33": 400.0,
+        "p66": 412.0000000000001,
+        "sample_size": 33
+      },
+      "basavanagudi": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "basaveshwar nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "basaveshwara nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "basaveshwara nagar bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bef dmart": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "behind neralur bus stop": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bellandur": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bellandur junction": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bellandur out ring road near rasahana hotel": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bengaluru- 560070.": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bengaluru-560078": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "best of bengal": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bharat petrol bunk)": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "bhuvanappa layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "brigade road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "brigade tower": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "brookefield": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "btm": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "btm 1st stage": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "btm 2nd stage bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "btm bangalore": {
+        "p33": 500.0,
+        "p66": 700.0,
+        "sample_size": 45
+      },
+      "btm layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "challaghatta": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "chikkaswamy layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "christ pool main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "church street": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "cmh road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "cox town": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "cunningham road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "delivery only": {
+        "p33": 300.0,
+        "p66": 400.0,
+        "sample_size": 86
+      },
+      "devarabisanahalli": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "devayy park": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "domlur": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "drc post": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "ejipura": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "electronic city": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "electronic city bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "electronic city bangalore-560100": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "epip area": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "for being our customers. we will be at btm to serve you.": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "frazer town": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "green glen layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hal old airport road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hbr layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hennur bagalur road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hennur-cross": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hkp road broadway": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hosur main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hosur road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hosur road - sarjapur junction": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hsr": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hsr bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hsr layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hsr layout bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hsr sector 2": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hsr. bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "hulimavu": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "iblur": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "india": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "indiranagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "jayanagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "jeevan bhima nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "jp nagar": {
+        "p33": 200.0,
+        "p66": 500.0,
+        "sample_size": 36
+      },
+      "jp nagar 7th phase": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "jp nagar bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kadubeesanahalli": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kalamandir marathahalli bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kalyan nagar.": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kammanahalli bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "karnataka": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kasturinagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kodichikkanahali": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "koramangala 1st block": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "koramangala 1st block opposide agara lake near the dhanush driving school.bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "koramangala 1st block.": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "koramangala 5th block": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "koramangala 7th block": {
+        "p33": 500.0,
+        "p66": 550.0,
+        "sample_size": 31
+      },
+      "koramangala bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "kormangala 4th block": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "krishna industrial layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "left from ramdev medical bellandur": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "location varies": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "madiwala": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "magrath road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "mahadevapura": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "mahadevpura": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "malleshwaram": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "malleshwaram bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "marathahalli": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "marathahalli-sarjapur outer ring road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "maruthi nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "mathikere": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "mg road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "n.s palya": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near bangalore central": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near cash pharmacy": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near citi bank": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near dayananda sagar college kumarswamy layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near gr tech park": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near jyothi nivas college": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near jyothinivas college": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near munrshwara temple": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near new bel road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near russel market": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "near sakra world hospital": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "new bel road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "new bel road 560054": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "new thippsandra post": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "off brigade road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "off richmond road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "off sarjapur road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "old airport road bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "opposite airtel office": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "opposite shivajinagar bus stop": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "opposite to printo": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "opposite to western side of itpl service gate": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "outer ring road": {
+        "p33": 700.0,
+        "p66": 1400.0,
+        "sample_size": 42
+      },
+      "panathur main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "puttenahalli": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "rajajinagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "rajaram mohan roy road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "ramamurthy nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "reliable residency layout": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "residency road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "rmz eco world backgate": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "rose garden bus stop": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "rt nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "sahakara nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "sanjay nagar bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "sarjapur outer ring road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "sector 1": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "seppings road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "sg palya": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "shanthinagara bbmp east bangalore - 560038": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "shantipura": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "shivajinagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "siddapura": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "somasundra palaya": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "sr nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "st. patricks complex": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "st.antony fairy church": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "stage 2": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "tavarakere main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "tavarekere": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "tavarekere main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "tavarekere road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "taverekere main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "thalassery restaurant nehrur road kammanahalli near sindicate bank": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "thavarekere main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "thippasandra": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "ulsoo": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "varthur hobli": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "victoria road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "vijaya nagar": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "whitefield": {
+        "p33": 400.0,
+        "p66": 600.0,
+        "sample_size": 61
+      },
+      "whitefield bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "whitefield main road": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "wilson garden bangalore": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      },
+      "yeshwanthpur": {
+        "p33": 350.0,
+        "p66": 600.0,
+        "sample_size": 41418
+      }
+    }
+  },
+  "column_mapping": {
+    "name": "name",
+    "location": "location",
+    "address": "address",
+    "listed_in(city)": "listed_area",
+    "cuisines": "cuisines",
+    "rate": "rating",
+    "approx_cost(for two people)": "cost_for_two",
+    "votes": "votes",
+    "rest_type": "rest_type",
+    "online_order": "online_order",
+    "book_table": "book_table"
+  },
+  "unmapped_columns": [
+    "url",
+    "dish_liked",
+    "reviews_list",
+    "menu_item",
+    "listed_in(type)",
+    "phone"
+  ]
+}
