@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zomato AI Recommender - No Matches</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary": "#c8c6c9",
+                "secondary": "#c6c6c7",
+                "tertiary-fixed-dim": "#c8c6c9",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#313032",
+                "surface-container-high": "#2a2a2c",
+                "surface-container-highest": "#353437",
+                "on-primary": "#680011",
+                "tertiary-fixed": "#e4e1e5",
+                "on-secondary-fixed-variant": "#454748",
+                "surface": "#131315",
+                "surface-variant": "#353437",
+                "on-background": "#e5e1e4",
+                "on-secondary-container": "#b4b5b6",
+                "on-secondary": "#2f3132",
+                "on-tertiary-fixed-variant": "#47464a",
+                "surface-container": "#201f22",
+                "primary-container": "#ff535a",
+                "on-tertiary-container": "#29292c",
+                "on-primary-container": "#5b000e",
+                "primary-fixed": "#ffdad8",
+                "surface-dim": "#131315",
+                "on-primary-fixed": "#410007",
+                "error": "#ffb4ab",
+                "surface-tint": "#ffb3b1",
+                "surface-container-lowest": "#0e0e10",
+                "on-tertiary": "#303033",
+                "tertiary-container": "#919094",
+                "on-primary-fixed-variant": "#92001c",
+                "primary": "#ffb3b1",
+                "on-secondary-fixed": "#1a1c1d",
+                "background": "#131315",
+                "secondary-container": "#454748",
+                "outline": "#ab8987",
+                "inverse-surface": "#e5e1e4",
+                "primary-fixed-dim": "#ffb3b1",
+                "on-tertiary-fixed": "#1b1b1e",
+                "inverse-primary": "#bb162c",
+                "outline-variant": "#5b403f",
+                "on-error": "#690005",
+                "on-surface": "#e5e1e4",
+                "error-container": "#93000a",
+                "surface-bright": "#39393b",
+                "secondary-fixed-dim": "#c6c6c7",
+                "secondary-fixed": "#e2e2e3",
+                "surface-container-low": "#1c1b1d",
+                "on-surface-variant": "#e4bebc"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "xs": "4px",
+                "margin-mobile": "16px",
+                "lg": "24px",
+                "margin-desktop": "64px",
+                "md": "16px",
+                "sm": "8px",
+                "xl": "32px",
+                "gutter": "16px",
+                "base": "8px",
+                "container-max": "1280px",
+                "sidebar-width": "280px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Outfit"
+                ],
+                "headline-lg-mobile": [
+                        "Outfit"
+                ],
+                "body-md": [
+                        "Outfit"
+                ],
+                "label-sm": [
+                        "Outfit"
+                ],
+                "label-md": [
+                        "Outfit"
+                ],
+                "display-lg": [
+                        "Outfit"
+                ],
+                "body-lg": [
+                        "Outfit"
+                ],
+                "display-lg-mobile": [
+                        "Outfit"
+                ],
+                "headline-md": [
+                        "Outfit"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "36px",
+                        {
+                                "lineHeight": "42px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Base styles to support material symbols and smooth scrolling */
+        html { scroll-behavior: smooth; }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for sidebar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        /* Subtle animated background pattern for empty state */
+        .empty-state-bg {
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 179, 177, 0.05) 0%, transparent 60%);
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-x-hidden">
+<!-- SideNavBar (Shared Component + Augmented Filters) -->
+<nav class="hidden md:flex bg-surface-container-low backdrop-blur-xl fixed left-0 top-0 h-full w-[280px] z-50 border-r border-outline-variant shadow-2xl flex flex-col h-full py-lg custom-scrollbar overflow-y-auto">
+<!-- Header -->
+<div class="px-md mb-xl flex flex-col gap-xs">
+<h2 class="font-headline-md text-on-surface">Digital Concierge</h2>
+<p class="font-label-sm text-on-surface-variant">Premium Discovery</p>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-xs mb-xl">
+<!-- Discover (Active) -->
+<li>
+<a class="flex items-center gap-sm text-on-primary bg-primary border-l-4 border-primary-fixed px-md py-sm hover:brightness-110 transition-all duration-300 transition-transform active:scale-98" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md">Discover</span>
+</a>
+</li>
+<!-- Favorites -->
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-variant/50 hover:text-on-surface transition-all duration-300 transition-transform active:scale-98" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md">Favorites</span>
+</a>
+</li>
+<!-- History -->
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-variant/50 hover:text-on-surface transition-all duration-300 transition-transform active:scale-98" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md">History</span>
+</a>
+</li>
+<!-- Insights -->
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-variant/50 hover:text-on-surface transition-all duration-300 transition-transform active:scale-98" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md">Insights</span>
+</a>
+</li>
+</ul>
+<!-- Augmented Restrictive Filters Section (Contextual for this state) -->
+<div class="px-md mt-auto mb-md">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-sm">Active Filters</h3>
+<div class="flex flex-col gap-sm">
+<!-- Location Filter -->
+<div class="bg-surface-container rounded-lg p-sm border border-outline-variant flex items-start gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Area</span>
+<span class="font-label-md text-on-surface truncate w-40">Tribeca (0.5mi radius)</span>
+</div>
+</div>
+<!-- Budget Filter -->
+<div class="bg-surface-container rounded-lg p-sm border border-outline-variant flex items-start gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">payments</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Budget</span>
+<span class="font-label-md text-on-surface">$$$$+ Only</span>
+</div>
+</div>
+<!-- Cuisine Filter -->
+<div class="bg-surface-container rounded-lg p-sm border border-outline-variant flex items-start gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">restaurant</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant">Cuisine</span>
+<span class="font-label-md text-on-surface">Omakase, Vegan</span>
+</div>
+</div>
+</div>
+<button class="mt-md w-full border border-primary text-primary hover:bg-primary/10 font-label-md py-sm rounded-lg transition-colors flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                Update Preferences
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-[280px] w-full min-h-screen relative empty-state-bg">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface/80 backdrop-blur-md sticky full-width top-0 z-40 border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-md h-16">
+<!-- Brand / Search (Left) -->
+<div class="flex items-center gap-sm">
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-primary p-xs hover:bg-surface-variant rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md font-bold text-primary truncate max-w-[200px] md:max-w-none">
+                    Zomato AI Recommender
+                </h1>
+</div>
+<!-- Actions (Right) -->
+<div class="flex items-center gap-sm">
+<button class="text-on-surface hover:bg-surface-variant transition-colors p-xs rounded-full flex items-center justify-center active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface hover:bg-surface-variant transition-colors p-xs rounded-full flex items-center justify-center active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- No Matches Canvas -->
+<div class="flex-1 flex items-center justify-center p-md md:p-xl w-full">
+<div class="max-w-2xl w-full flex flex-col items-center text-center animate-fade-in-up">
+<!-- Glassmorphic Illustration Container -->
+<div class="relative w-48 h-48 md:w-64 md:h-64 mb-xl">
+<!-- Decorative background blur blobs -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl transform -translate-x-1/4 -translate-y-1/4"></div>
+<div class="absolute inset-0 bg-tertiary/20 rounded-full blur-3xl transform translate-x-1/4 translate-y-1/4"></div>
+<!-- Main Icon/Graphic -->
+<div class="relative z-10 w-full h-full bg-surface-container border border-outline-variant rounded-[32px] shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex items-center justify-center overflow-hidden group">
+<!-- Abstract representation of looking/confused instead of image for cleaner UI, using large Material Symbol -->
+<div class="w-full h-full bg-gradient-to-br from-surface to-surface-container flex items-center justify-center relative">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffb3b1 1px, transparent 1px); background-size: 16px 16px;"></div>
+<!-- Search Off Icon with styling -->
+<div class="relative z-20 flex flex-col items-center transform group-hover:scale-105 transition-transform duration-500">
+<span class="material-symbols-outlined text-[80px] md:text-[100px] text-primary opacity-90 drop-shadow-md">
+                                    search_off
+                                </span>
+<div class="w-16 h-2 bg-black/50 rounded-full mt-4 blur-[2px]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Messaging -->
+<h2 class="font-display-lg text-on-surface mb-sm tracking-tight">
+                    No matches found.
+                </h2>
+<p class="font-body-lg text-on-surface-variant max-w-lg mx-auto mb-xl leading-relaxed">
+                    We couldn't find a restaurant that fits all these criteria. Try broadening your budget or searching in a nearby area to discover hidden gems.
+                </p>
+<!-- Primary Action -->
+<div class="flex flex-col sm:flex-row items-center gap-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto bg-primary text-on-primary font-label-md px-xl py-sm rounded-xl shadow-[0_4px_14px_rgba(255,179,177,0.2)] hover:brightness-110 active:scale-95 transition-all duration-200 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">filter_alt_off</span>
+                        Reset Filters
+                    </button>
+<button class="w-full sm:w-auto bg-surface-container hover:bg-surface-variant text-on-surface font-label-md px-xl py-sm rounded-xl transition-all duration-200 border border-outline">
+                        Explore Nearby
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple animation styles inline -->
+<style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</body></html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Zomato AI | Premium Discovery</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          zomato: {
+            red: "#E23744",
+            darkRed: "#CB202D",
+            lightRed: "#FF535A"
+          },
+          glass: {
+            100: "rgba(255, 255, 255, 0.05)",
+            200: "rgba(255, 255, 255, 0.1)",
+            stroke: "rgba(255, 255, 255, 0.1)"
+          }
+        },
+        fontFamily: {
+          sans: ["Inter", "sans-serif"],
+          display: ["Outfit", "sans-serif"]
+        },
+        boxShadow: {
+          'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+          'glow': '0 0 20px rgba(226, 55, 68, 0.4)'
+        }
+      }
+    }
+  }
+</script>
+<style>
+    body { background-color: #09090B; color: #F4F4F5; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    
+    /* Hide Scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Aurora Background Animation */
+    @keyframes aurora-1 {
+        0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+        33% { transform: translate(30px, -50px) scale(1.2); opacity: 0.7; }
+        66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.4; }
+        100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    }
+    @keyframes aurora-2 {
+        0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+        33% { transform: translate(-40px, 30px) scale(0.8); opacity: 0.6; }
+        66% { transform: translate(40px, -20px) scale(1.1); opacity: 0.3; }
+        100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+    }
+    .aurora-blob-1 { animation: aurora-1 15s infinite ease-in-out alternate; }
+    .aurora-blob-2 { animation: aurora-2 18s infinite ease-in-out alternate; }
+
+    /* Glassmorphism Classes */
+    .glass-panel {
+        background: rgba(24, 24, 27, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .glass-pill {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    .glass-pill:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(226, 55, 68, 0.5);
+        box-shadow: 0 4px 15px rgba(226, 55, 68, 0.2);
+    }
+
+    /* Staggered Entry Animation */
+    @keyframes slideUpSpring {
+        0% { opacity: 0; transform: translateY(60px) scale(0.95); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .stagger-item {
+        opacity: 0;
+        animation: slideUpSpring 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Shimmer Skeleton */
+    @keyframes premiumShimmer {
+        0% { background-position: -1200px 0; }
+        100% { background-position: 1200px 0; }
+    }
+    .skeleton {
+        background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+        background-size: 1200px 100%;
+        animation: premiumShimmer 2s infinite linear;
+    }
+
+    /* Card Ken Burns Hover */
+    .card-img-container { overflow: hidden; }
+    .card-img-container img { transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+    .premium-card:hover .card-img-container img { transform: scale(1.08); }
+    .premium-card:hover { border-color: rgba(226, 55, 68, 0.4); box-shadow: 0 10px 40px -10px rgba(226, 55, 68, 0.3); }
+
+    /* Rating Colors */
+    .rating-excellent { background-color: #24963F; color: white; }
+    .rating-good { background-color: #8CBA51; color: white; }
+    .rating-average { background-color: #F6D04D; color: #4A4A4A; }
+</style>
+</head>
+<body class="antialiased overflow-x-hidden flex flex-col h-screen w-screen relative">
+
+<!-- Ambient Aurora Background -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-zomato-red/10 blur-[120px] aurora-blob-1"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-blue-500/10 blur-[120px] aurora-blob-2"></div>
+</div>
+
+<!-- Floating Glass Header / Filter Bar -->
+<div class="fixed top-4 left-0 right-0 z-40 px-4 md:px-8 flex justify-center pointer-events-none">
+    <header class="glass-panel rounded-full px-4 py-3 flex items-center justify-between gap-4 md:gap-8 shadow-glass pointer-events-auto max-w-5xl w-full mx-auto">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 shrink-0">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-zomato-red to-zomato-darkRed flex items-center justify-center shadow-glow">
+                <span class="material-symbols-outlined text-white text-[20px]">auto_awesome</span>
+            </div>
+            <span class="font-display font-bold text-xl hidden md:block">Zomato AI</span>
+        </div>
+
+        <!-- Filter Pills (Scrollable) -->
+        <div class="flex-1 overflow-x-auto no-scrollbar flex items-center gap-3">
+            <button id="btn-location" class="glass-pill flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium shrink-0">
+                <span class="material-symbols-outlined text-[16px] text-zomato-lightRed">location_on</span>
+                <span id="label-location">Bangalore</span>
+            </button>
+            <button id="btn-budget" class="glass-pill flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium shrink-0">
+                <span class="material-symbols-outlined text-[16px] text-zomato-lightRed">payments</span>
+                <span id="label-budget">Medium Budget</span>
+            </button>
+            <button id="btn-rating" class="glass-pill flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium shrink-0">
+                <span class="material-symbols-outlined text-[16px] text-zomato-lightRed">star</span>
+                <span id="label-rating">3.5+ Rating</span>
+            </button>
+            <button id="btn-cuisine" class="glass-pill flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium shrink-0">
+                <span class="material-symbols-outlined text-[16px] text-zomato-lightRed">restaurant_menu</span>
+                <span id="label-cuisine">Any Cuisine</span>
+            </button>
+        </div>
+
+        <!-- Action / Profile -->
+        <div class="shrink-0">
+            <button id="btn-search" class="bg-white text-black font-display font-bold px-6 py-2 rounded-full hover:bg-gray-200 transition-colors shadow-lg flex items-center gap-2">
+                Discover
+            </button>
+        </div>
+    </header>
+</div>
+
+<!-- Main Scrollable Area -->
+<main id="main-scroll" class="flex-1 overflow-y-auto z-10 relative pt-32 pb-24 px-4 md:px-8">
+    
+    <!-- Hero / Empty State -->
+    <div id="empty-state" class="flex flex-col items-center justify-center min-h-[60vh] text-center max-w-3xl mx-auto">
+        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
+            Discover Culinary <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-zomato-red to-orange-400">Excellence.</span>
+        </h1>
+        <p class="text-text-secondary text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10">
+            Elevate your dining experience. Set your preferences above and let our AI concierge curate the perfect restaurants for your mood.
+        </p>
+        
+        <!-- Decorative feature cards in empty state -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full opacity-60">
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center gap-3">
+                <span class="material-symbols-outlined text-3xl text-zomato-lightRed">bolt</span>
+                <span class="font-display font-medium">Instant Curation</span>
+            </div>
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center gap-3">
+                <span class="material-symbols-outlined text-3xl text-zomato-lightRed">tune</span>
+                <span class="font-display font-medium">Hyper-Personalized</span>
+            </div>
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center gap-3">
+                <span class="material-symbols-outlined text-3xl text-zomato-lightRed">verified</span>
+                <span class="font-display font-medium">Premium Quality</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skeleton Loading State -->
+    <div id="loading-state" class="hidden flex-col gap-8 max-w-6xl mx-auto">
+        <div class="skeleton h-24 w-full rounded-3xl border border-glass-stroke"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="skeleton h-[400px] w-full rounded-3xl border border-glass-stroke"></div>
+            <div class="skeleton h-[400px] w-full rounded-3xl border border-glass-stroke"></div>
+            <div class="skeleton h-[400px] w-full rounded-3xl border border-glass-stroke"></div>
+        </div>
+    </div>
+
+    <!-- Results State -->
+    <div id="results-state" class="hidden flex-col gap-8 max-w-6xl mx-auto">
+        
+        <!-- AI Synthesis Banner -->
+        <div id="ai-summary-container" class="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden flex items-start gap-6 border-l-4 border-l-zomato-red">
+            <div class="absolute right-0 top-0 w-64 h-64 bg-zomato-red/10 rounded-full blur-3xl"></div>
+            <div class="w-12 h-12 rounded-full bg-zomato-red/20 flex items-center justify-center shrink-0 border border-zomato-red/30 text-zomato-lightRed">
+                <span class="material-symbols-outlined text-[28px]">psychology</span>
+            </div>
+            <div class="relative z-10">
+                <h3 class="font-display font-bold text-lg text-white mb-2">Concierge Synthesis</h3>
+                <p id="ai-summary-text" class="text-text-secondary text-base leading-relaxed"></p>
+            </div>
+        </div>
+
+        <!-- Bento Grid for Cards -->
+        <div id="results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards injected here by JS -->
+        </div>
+        
+        <!-- No Results Hint -->
+        <div id="hints-container" class="hidden flex-col items-center justify-center text-center p-12 glass-panel rounded-3xl">
+             <span class="material-symbols-outlined text-[64px] text-text-muted mb-4">search_off</span>
+             <h3 class="font-display text-3xl font-bold text-white mb-2">No Matches Found</h3>
+             <p id="hints-text" class="text-text-secondary text-lg"></p>
+        </div>
+    </div>
+</main>
+
+<!-- Modals Backdrop -->
+<div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex justify-center items-end md:items-center">
+    
+    <!-- Dynamic Glass Modal -->
+    <div id="filter-sheet" class="glass-panel w-full md:w-[450px] rounded-t-3xl md:rounded-3xl transform translate-y-full md:scale-95 transition-all duration-400 ease-out flex flex-col shadow-2xl border-t md:border border-white/10">
+        
+        <div class="flex justify-center pt-4 pb-2 shrink-0 md:hidden">
+            <div class="w-12 h-1.5 bg-white/20 rounded-full"></div>
+        </div>
+        
+        <div class="px-6 py-4 flex justify-between items-center border-b border-white/5">
+            <h3 id="sheet-title" class="font-display text-xl font-bold text-white">Filter</h3>
+            <div id="close-sheet" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-colors">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </div>
+        </div>
+        
+        <div id="sheet-content" class="p-6 overflow-y-auto max-h-[60vh] no-scrollbar">
+            <!-- Content injected/toggled via JS -->
+            
+            <!-- Location Content -->
+            <div id="content-location" class="hidden flex-col gap-4">
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined absolute left-4 text-text-muted">search</span>
+                    <input type="text" id="loc-search" class="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-zomato-red focus:ring-1 focus:ring-zomato-red outline-none transition-all placeholder-white/30" placeholder="Search locality...">
+                </div>
+                <div id="loc-list" class="flex flex-col gap-2 max-h-60 overflow-y-auto mt-2 pr-2 no-scrollbar"></div>
+            </div>
+            
+            <!-- Budget Content -->
+            <div id="content-budget" class="hidden flex-col gap-3">
+                <!-- Low -->
+                <label class="flex items-center justify-between p-4 rounded-2xl border border-white/10 cursor-pointer hover:bg-white/5 transition-all bg-zomato-red/10 border-zomato-red" data-budget="low">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-zomato-red/20 flex items-center justify-center text-zomato-lightRed">
+                            <span class="material-symbols-outlined text-[20px]">attach_money</span>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-white">Accessible</p>
+                            <p class="text-sm text-text-secondary">Low budget, great value</p>
+                        </div>
+                    </div>
+                    <div class="w-6 h-6 rounded-full border-2 border-zomato-red flex items-center justify-center check-circle">
+                        <div class="w-3 h-3 bg-zomato-red rounded-full"></div>
+                    </div>
+                </label>
+                <!-- Medium -->
+                <label class="flex items-center justify-between p-4 rounded-2xl border border-white/10 cursor-pointer hover:bg-white/5 transition-all" data-budget="medium">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60">
+                            <span class="material-symbols-outlined text-[20px]">payments</span>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-white">Moderate</p>
+                            <p class="text-sm text-text-secondary">Comfort dining</p>
+                        </div>
+                    </div>
+                    <div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center check-circle"></div>
+                </label>
+                <!-- High -->
+                <label class="flex items-center justify-between p-4 rounded-2xl border border-white/10 cursor-pointer hover:bg-white/5 transition-all" data-budget="high">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60">
+                            <span class="material-symbols-outlined text-[20px]">diamond</span>
+                        </div>
+                        <div>
+                            <p class="font-display font-bold text-white">Premium</p>
+                            <p class="text-sm text-text-secondary">Fine dining experience</p>
+                        </div>
+                    </div>
+                    <div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center check-circle"></div>
+                </label>
+            </div>
+
+            <!-- Rating Content -->
+            <div id="content-rating" class="hidden flex-col gap-8 py-4">
+                <div class="flex justify-between items-center bg-black/30 p-4 rounded-2xl border border-white/5">
+                    <span class="font-display text-white">Minimum Rating</span>
+                    <span id="rating-sheet-val" class="text-zomato-lightRed font-bold text-2xl font-display">3.5</span>
+                </div>
+                <input type="range" id="rating-sheet-input" min="1" max="5" step="0.1" value="3.5" class="w-full accent-zomato-red h-2 bg-white/10 rounded-lg appearance-none cursor-pointer">
+            </div>
+            
+            <!-- Cuisine Content -->
+            <div id="content-cuisine" class="hidden flex-col gap-4">
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined absolute left-4 text-text-muted">restaurant_menu</span>
+                    <input type="text" id="cuisine-sheet-input" class="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-zomato-red focus:ring-1 focus:ring-zomato-red outline-none transition-all placeholder-white/30" placeholder="e.g. Italian, Sushi, Cafe">
+                </div>
+                <p class="text-sm text-text-secondary mt-1 ml-2">Leave empty to discover any cuisine.</p>
+            </div>
+            
+        </div>
+        
+        <div class="p-6 pt-0 shrink-0">
+            <button id="btn-apply-filter" class="w-full bg-zomato-red text-white py-4 rounded-2xl font-display font-bold text-lg hover:bg-zomato-darkRed transition-colors shadow-[0_4px_15px_rgba(226,55,68,0.4)]">
+                Apply Preferences
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+"""Zomato milestone recommendation application."""

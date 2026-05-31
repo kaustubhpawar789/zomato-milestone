@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zomato AI Recommender</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary": "#c8c6c9",
+                "secondary": "#c6c6c7",
+                "tertiary-fixed-dim": "#c8c6c9",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#313032",
+                "surface-container-high": "#2a2a2c",
+                "surface-container-highest": "#353437",
+                "on-primary": "#680011",
+                "tertiary-fixed": "#e4e1e5",
+                "on-secondary-fixed-variant": "#454748",
+                "surface": "#131315",
+                "surface-variant": "#353437",
+                "on-background": "#e5e1e4",
+                "on-secondary-container": "#b4b5b6",
+                "on-secondary": "#2f3132",
+                "on-tertiary-fixed-variant": "#47464a",
+                "surface-container": "#201f22",
+                "primary-container": "#ff535a",
+                "on-tertiary-container": "#29292c",
+                "on-primary-container": "#5b000e",
+                "primary-fixed": "#ffdad8",
+                "surface-dim": "#131315",
+                "on-primary-fixed": "#410007",
+                "error": "#ffb4ab",
+                "surface-tint": "#ffb3b1",
+                "surface-container-lowest": "#0e0e10",
+                "on-tertiary": "#303033",
+                "tertiary-container": "#919094",
+                "on-primary-fixed-variant": "#92001c",
+                "primary": "#ffb3b1",
+                "on-secondary-fixed": "#1a1c1d",
+                "background": "#131315",
+                "secondary-container": "#454748",
+                "outline": "#ab8987",
+                "inverse-surface": "#e5e1e4",
+                "primary-fixed-dim": "#ffb3b1",
+                "on-tertiary-fixed": "#1b1b1e",
+                "inverse-primary": "#bb162c",
+                "outline-variant": "#5b403f",
+                "on-error": "#690005",
+                "on-surface": "#e5e1e4",
+                "error-container": "#93000a",
+                "surface-bright": "#39393b",
+                "secondary-fixed-dim": "#c6c6c7",
+                "secondary-fixed": "#e2e2e3",
+                "surface-container-low": "#1c1b1d",
+                "on-surface-variant": "#e4bebc"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "container-max": "1280px",
+                "xs": "4px",
+                "margin-mobile": "16px",
+                "lg": "24px",
+                "margin-desktop": "64px",
+                "md": "16px",
+                "sm": "8px",
+                "xl": "32px",
+                "gutter": "16px",
+                "base": "8px",
+                "sidebar-width": "280px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Outfit"
+                ],
+                "headline-lg-mobile": [
+                        "Outfit"
+                ],
+                "body-md": [
+                        "Outfit"
+                ],
+                "label-sm": [
+                        "Outfit"
+                ],
+                "label-md": [
+                        "Outfit"
+                ],
+                "display-lg": [
+                        "Outfit"
+                ],
+                "body-lg": [
+                        "Outfit"
+                ],
+                "display-lg-mobile": [
+                        "Outfit"
+                ],
+                "headline-md": [
+                        "Outfit"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "36px",
+                        {
+                                "lineHeight": "42px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom soft shadow as per guidelines */
+        .shadow-soft {
+            box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- SideNavBar (Shared Component JSON) -->
+<nav class="hidden md:flex flex-col py-lg fixed left-0 top-0 h-full w-[280px] z-50 bg-secondary/90 backdrop-blur-xl border-r border-outline-variant/10 shadow-2xl">
+<!-- Header / Identity -->
+<div class="px-md mb-xl flex flex-col gap-sm">
+<h2 class="font-headline-md text-headline-md font-bold text-on-primary-container">Digital Concierge</h2>
+<p class="font-label-sm text-label-sm text-on-secondary/70">Premium Discovery</p>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex flex-col gap-xs flex-grow">
+<!-- Active Tab (Intent: Discovering results) -->
+<a class="flex items-center gap-sm text-on-primary bg-primary/20 border-l-4 border-primary px-md py-sm transition-all duration-300" href="#">
+<span class="material-symbols-outlined icon-fill">explore</span>
+<span class="font-label-md text-label-md">Discover</span>
+</a>
+<a class="flex items-center gap-sm text-on-secondary/70 px-md py-sm hover:bg-white/10 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Favorites</span>
+</a>
+<a class="flex items-center gap-sm text-on-secondary/70 px-md py-sm hover:bg-white/10 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">History</span>
+</a>
+<a class="flex items-center gap-sm text-on-secondary/70 px-md py-sm hover:bg-white/10 hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Insights</span>
+</a>
+</div>
+<!-- Active Filters Section (Requested in Prompt) -->
+<div class="px-md mt-auto mb-lg flex flex-col gap-sm">
+<h3 class="font-label-sm text-label-sm text-on-secondary/50 uppercase tracking-widest">Active Context</h3>
+<div class="flex flex-wrap gap-xs">
+<div class="bg-surface-container/20 text-on-secondary px-sm py-[6px] rounded-full font-label-sm text-label-sm flex items-center gap-xs border border-white/10">
+                    Indiranagar
+                    <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-primary-fixed-dim">close</span>
+</div>
+<div class="bg-surface-container/20 text-on-secondary px-sm py-[6px] rounded-full font-label-sm text-label-sm flex items-center gap-xs border border-white/10">
+                    Medium Budget
+                    <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-primary-fixed-dim">close</span>
+</div>
+<div class="bg-surface-container/20 text-on-secondary px-sm py-[6px] rounded-full font-label-sm text-label-sm flex items-center gap-xs border border-white/10">
+                    Pan-Asian
+                    <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-primary-fixed-dim">close</span>
+</div>
+</div>
+<button class="mt-sm font-label-md text-label-md text-primary-fixed-dim hover:text-on-primary transition-colors text-left flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">tune</span> Update Preferences
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-0 md:ml-[280px] min-h-screen flex flex-col pb-xl">
+<!-- TopAppBar (Shared Component JSON) -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md shadow-sm border-b border-outline-variant/20 flex justify-between items-center w-full px-md h-16">
+<!-- Search Bar On Left -->
+<div class="flex-1 flex items-center gap-md">
+<!-- Brand logo visible mainly on mobile if sidebar hidden, but included as per JSON -->
+<h1 class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent md:hidden">Zomato AI Recommender</h1>
+<div class="hidden md:flex relative w-full max-w-md items-center">
+<span class="material-symbols-outlined absolute left-sm text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-sm py-[10px] bg-surface-container-low border border-outline-variant/40 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-on-surface-variant/50" placeholder="Refine your craving..." type="text"/>
+</div>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-sm">
+<button class="p-[8px] rounded-full text-on-surface-variant hover:bg-surface-container-high/50 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-[8px] rounded-full text-on-surface-variant hover:bg-surface-container-high/50 transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="w-full max-w-container-max mx-auto px-md md:px-lg pt-lg flex flex-col gap-lg">
+<!-- Hero Section & Metrics -->
+<section class="flex flex-col gap-md">
+<h1 class="font-display-lg text-display-lg bg-gradient-to-r from-primary to-on-primary-fixed-variant bg-clip-text text-transparent pb-xs">
+                    Curated for You
+                </h1>
+<!-- Metrics Row (Bento-style thin cards) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-soft border border-outline-variant/20 flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">1,240</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Candidates Filtered</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-soft border border-outline-variant/20 flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">stars</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">5</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Recommendations</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-sm shadow-soft border border-outline-variant/20 flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">1.2s</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">AI Response Time</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Summary Banner -->
+<section class="bg-surface-container rounded-xl p-md border border-outline-variant/30 relative overflow-hidden flex items-start gap-md">
+<!-- Decorative background blob -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="mt-[2px] text-primary shrink-0">
+<span class="material-symbols-outlined icon-fill text-[28px]">auto_awesome</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-label-md text-label-md text-primary mb-xs uppercase tracking-wider">AI Synthesis</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Based on your preference for rooftop seating and Pan-Asian flavors in Indiranagar, I've curated 5 spots known for their ambiance and authentic spice profiles.
+                    </p>
+</div>
+</section>
+<!-- Results Grid (Horizontal Premium Cards) -->
+<section class="flex flex-col gap-md">
+<!-- Card 1: The Fatty Bao -->
+<article class="bg-surface-container-lowest rounded-xl shadow-soft border border-outline-variant/20 overflow-hidden flex flex-col md:flex-row hover:shadow-lg hover:border-b-2 hover:border-b-primary transition-all duration-300 group">
+<!-- Image Section -->
+<div class="relative w-full md:w-[320px] shrink-0 aspect-video md:aspect-auto md:h-[240px]">
+<img class="w-full h-full object-cover" data-alt="A high-end Pan-Asian restaurant interior featuring warm, ambient lighting. The scene captures a sophisticated rooftop setting with sleek wooden tables, subtle modern corporate glassmorphic accents in the decor, and a vibrant yet cozy atmosphere. The color palette emphasizes deep slates and pristine whites with subtle warm glowing accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7289Jh76zUK6Drqf5ZFSuCpdiroRwVuUF1v96E526OiRux965RjHtjFo0jB7o2Eb99jacFQWh0Az4ylYxPhFrtHKookoMMnOAt0qfkgApVANQEcETGQtG5BRl1rDXsbNwlKR8ek1MfvryYT00NlyWWEJINUB9EkSBJBPaapYL-1hxWwtVBsbMayBNt0dPeRomJwEqIQulWX1sHdJO0feFj74giyw-ArUPD5hZWEDq8k6f6nyh_VwuwBIWM20wAueK-EnI49CdHvE"/>
+<!-- Rank Badge -->
+<div class="absolute top-sm left-sm bg-primary text-on-primary px-sm py-[4px] rounded-lg font-label-md text-label-md flex items-center gap-xs shadow-md">
+<span class="material-symbols-outlined text-[16px]">trophy</span> Rank #1
+                        </div>
+</div>
+<!-- Content Section -->
+<div class="p-md flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">The Fatty Bao</h3>
+<div class="flex items-center gap-[4px] bg-surface-container px-sm py-[4px] rounded-md">
+<span class="material-symbols-outlined icon-fill text-primary text-[18px]">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.8</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-sm mb-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">restaurant</span> Pan-Asian</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">payments</span> ₹1500 for two</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">location_on</span> Indiranagar</span>
+</div>
+</div>
+<!-- AI Explanation Block -->
+<div class="bg-surface-container-low rounded-lg p-sm border border-outline-variant/30 flex items-start gap-sm mt-auto">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-[2px]">tips_and_updates</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Chosen for its award-winning rooftop ambiance and a specific mention of live music on weekends, perfectly matching your "rooftop seating, live music" request.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Card 2: Placeholder -->
+<article class="bg-surface-container-lowest rounded-xl shadow-soft border border-outline-variant/20 overflow-hidden flex flex-col md:flex-row hover:shadow-lg hover:border-b-2 hover:border-b-primary transition-all duration-300 group">
+<div class="relative w-full md:w-[320px] shrink-0 aspect-video md:aspect-auto md:h-[240px]">
+<img class="w-full h-full object-cover" data-alt="A modern corporate style restaurant view showing an elegant dining room. Crisp white table settings contrast with deep slate walls and subtle crimson architectural highlights. The lighting is bright and inviting, creating a premium light-mode visual aesthetic suitable for fine dining discovery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwrJKFaGfubYVo_Oze28WgAgOtSn2J13UnjnTYb4naoUIAqzmaqj2QQLoubFnak7DKRO7QlQRkjvxBdpdYe4v84kasnz0gVWdawgG9LT5GunXtNyjPD29mHlX-pQC69iLyELO0hmJaln1OxT10hSyD11aZjMwCcENYIqVxaMaHaLi_rtJGm38-BzYIU2xxJNuumErwLF6tg5YVwwzJAs_DeI_KekYqCTwaeSbGHfPHhwL84b57WByKrmfQ-Mr4pe6jw1H0mYW0VmY"/>
+<div class="absolute top-sm left-sm bg-surface-container-highest text-on-surface px-sm py-[4px] rounded-lg font-label-md text-label-md shadow-md">
+                            Rank #2
+                        </div>
+</div>
+<div class="p-md flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">Sriracha</h3>
+<div class="flex items-center gap-[4px] bg-surface-container px-sm py-[4px] rounded-md">
+<span class="material-symbols-outlined icon-fill text-primary text-[18px]">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.6</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-sm mb-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">restaurant</span> Pan-Asian</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">payments</span> ₹1800 for two</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">location_on</span> Indiranagar</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm border border-outline-variant/30 flex items-start gap-sm mt-auto">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-[2px]">tips_and_updates</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Exceptional user reviews for their contemporary Asian fusion menu. The open-air patio provides a great alternative to traditional rooftop seating.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Card 3: Placeholder -->
+<article class="bg-surface-container-lowest rounded-xl shadow-soft border border-outline-variant/20 overflow-hidden flex flex-col md:flex-row hover:shadow-lg hover:border-b-2 hover:border-b-primary transition-all duration-300 group">
+<div class="relative w-full md:w-[320px] shrink-0 aspect-video md:aspect-auto md:h-[240px]">
+<img class="w-full h-full object-cover" data-alt="A beautifully plated Pan-Asian dish resting on a modern glassmorphic table surface. The background is softly blurred, showing a sophisticated restaurant environment with modern corporate design elements, soft natural lighting, and a clean, high-contrast visual hierarchy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Dr0uB8UmpdGSLwnPTudfw0djQCfw9wA1WXUpmhBB_JDKxe0WNQijMrNwIskgJhuXSLDxFeOOXxitNpc354i1ass4TSQKIVyWu3H_0u0vIIDBAqHsfY8VCsZmqffZS6TX3WglRzfuKJ18Oo6racM_yO0aymPZhyH6JeM13gY2YBmf3lIJcQjGQ4PIt8vJd8waOBrPYMqiLePzb3QA5tl9dpma2RVkykg0BNJOofRlDvt1cl5l_sQjrsfKQ77hL3_LXmCCX5Y_4k4"/>
+<div class="absolute top-sm left-sm bg-surface-container-highest text-on-surface px-sm py-[4px] rounded-lg font-label-md text-label-md shadow-md">
+                            Rank #3
+                        </div>
+</div>
+<div class="p-md flex flex-col flex-grow justify-between">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">Mamagoto</h3>
+<div class="flex items-center gap-[4px] bg-surface-container px-sm py-[4px] rounded-md">
+<span class="material-symbols-outlined icon-fill text-primary text-[18px]">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.5</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-sm mb-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">restaurant</span> Asian Fusion</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">payments</span> ₹1400 for two</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">location_on</span> Indiranagar</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm border border-outline-variant/30 flex items-start gap-sm mt-auto">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-[2px]">tips_and_updates</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Selected for its vibrant decor and consistently high ratings on flavor authenticity, fitting neatly within your medium budget constraints.
+                            </p>
+</div>
+</div>
+</article>
+<!-- Load More Button -->
+<div class="flex justify-center mt-md">
+<button class="bg-surface-container border border-outline-variant/50 text-on-surface px-xl py-sm rounded-xl font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm hover:shadow-md">
+                        View Remaining Candidates
+                    </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>
