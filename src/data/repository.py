@@ -145,6 +145,19 @@ class RestaurantRepository:
             seen[key] = restaurant.location
         return sorted(seen.values(), key=str.casefold)
 
+    def unique_cuisines(self) -> List[str]:
+        """Return a sorted list of unique cuisines."""
+        self.ensure_loaded()
+        seen: set[str] = set()
+        for r in self._restaurants:
+            if not r.cuisines:
+                continue
+            for c in r.cuisines.split(','):
+                c = c.strip()
+                if c:
+                    seen.add(c)
+        return sorted(list(seen), key=str.casefold)
+
     def get_budget_thresholds(self, city_normalized: str) -> BudgetThresholds:
         """
         Return per-city budget percentiles, falling back to global thresholds.

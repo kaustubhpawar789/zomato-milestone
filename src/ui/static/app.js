@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cuisine: ''
     };
     let allLocations = [];
+    let allCuisines = [];
     let activeFilter = null;
 
     // --- DOM Elements ---
@@ -56,9 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 state.location = allLocations[0];
             }
             pillLabels.location.textContent = state.location;
-            renderLocationList(allLocations);
+            renderLocationList(allLocations.slice(0, 50));
         })
         .catch(err => console.error("Failed to load locations", err));
+
+    fetch('/api/cuisines')
+        .then(res => res.json())
+        .then(data => {
+            allCuisines = data.cuisines;
+            renderCuisineList(allCuisines.slice(0, 50));
+        })
+        .catch(err => console.error("Failed to load cuisines", err));
 
     // --- Sheet Logic (Premium Slide & Blur) ---
     function openSheet(type, title) {
@@ -111,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.textContent = loc;
             div.addEventListener('click', () => {
                 state.location = loc;
-                renderLocationList(list);
+                renderLocationList(allLocations.slice(0, 50));
                 applyPreferences(); // Auto-apply
             });
             locList.appendChild(div);
@@ -120,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     locSearch.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const filtered = allLocations.filter(l => l.toLowerCase().includes(query));
+        const filtered = allLocations.filter(l => l.toLowerCase().includes(query)).slice(0, 50);
         renderLocationList(filtered);
     });
 
@@ -160,30 +169,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Rating
-    const ratingInput = document.getElementById('rating-sheet-input');
-    const ratingVal = document.getElementById('rating-sheet-val');
-    ratingInput.addEventListener('input', (e) => {
-        const val = parseFloat(e.target.value).toFixed(1);
-        ratingVal.textContent = val;
-        state.rating = val;
-    });
+    const ratingList = document.getElementById('rating-list');
+    const ratingOptions = [
+        { label: "Any Rating", val: 0 },
+        { label: "3.5+ Good", val: 3.5 },
+        { label: "4.0+ Excellent", val: 4.0 },
+        { label: "4.5+ Exceptional", val: 4.5 },
+        { label: "4.8+ Masterpiece", val: 4.8 }
+    ];
+    function renderRatingList() {
+        if(!ratingList) return;
+        ratingList.innerHTML = '';
+        ratingOptions.forEach(opt => {
+            const div = document.createElement('div');
+            const isActive = state.rating == opt.val;
+            div.className = `p-4 rounded-2xl cursor-pointer transition-all ${isActive ? 'bg-zomato-red/10 border-l-4 border-zomato-red text-white font-bold' : 'hover:bg-white/5 border-l-4 border-transparent text-text-primary'}`;
+            div.textContent = opt.label;
+            div.addEventListener('click', () => {
+                state.rating = opt.val;
+                renderRatingList();
+                applyPreferences();
+            });
+            ratingList.appendChild(div);
+        });
+    }
+    renderRatingList();
 
     // Apply Preferences Logic
     function applyPreferences() {
         pillLabels.location.textContent = state.location;
         let budgetStr = state.budget === 'low' ? 'Accessible' : (state.budget === 'medium' ? 'Moderate' : 'Premium');
         pillLabels.budget.textContent = budgetStr;
-        pillLabels.rating.textContent = state.rating + '+ Rating';
+        pillLabels.rating.textContent = state.rating == 0 ? 'Any Rating' : state.rating + '+ Rating';
         
-        const cuisineRaw = document.getElementById('cuisine-sheet-input').value.trim();
-        state.cuisine = cuisineRaw;
-        pillLabels.cuisine.textContent = cuisineRaw ? cuisineRaw : 'Any Cuisine';
+        pillLabels.cuisine.textContent = state.cuisine ? state.cuisine : 'Any Cuisine';
         
         closeSheet();
     }
 
-    // Apply Button (for manual apply, e.g., after typing cuisine or using rating slider)
-    btnApply.addEventListener('click', applyPreferences);
+    // Cuisine
+    const cuisineSearch = document.getElementById('cuisine-search');
+    const cuisineList = document.getElementById('cuisine-list');
+    
+    function renderCuisineList(list) {
+        if(!cuisineList) return;
+        cuisineList.innerHTML = '';
+        
+        const anyDiv = document.createElement('div');
+        const isAnyActive = !state.cuisine;
+        anyDiv.className = `p-4 rounded-2xl cursor-pointer transition-all ${isAnyActive ? 'bg-zomato-red/10 border-l-4 border-zomato-red text-white font-bold' : 'hover:bg-white/5 border-l-4 border-transparent text-text-primary'}`;
+        anyDiv.textContent = 'Any Cuisine';
+        anyDiv.addEventListener('click', () => {
+            state.cuisine = '';
+            renderCuisineList(allCuisines.slice(0, 50));
+            applyPreferences();
+        });
+        cuisineList.appendChild(anyDiv);
+
+        list.forEach(c => {
+            const div = document.createElement('div');
+            const isActive = state.cuisine === c;
+            div.className = `p-4 rounded-2xl cursor-pointer transition-all ${isActive ? 'bg-zomato-red/10 border-l-4 border-zomato-red text-white font-bold' : 'hover:bg-white/5 border-l-4 border-transparent text-text-primary'}`;
+            div.textContent = c;
+            div.addEventListener('click', () => {
+                state.cuisine = c;
+                renderCuisineList(allCuisines.slice(0, 50));
+                applyPreferences();
+            });
+            cuisineList.appendChild(div);
+        });
+    }
+
+    if(cuisineSearch) {
+        cuisineSearch.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = allCuisines.filter(c => c.toLowerCase().includes(query)).slice(0, 50);
+            renderCuisineList(filtered);
+        });
+    }
 
     // --- Recommendation Fetching ---
     const btnSearch = document.getElementById('btn-search');

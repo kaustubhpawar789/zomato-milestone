@@ -307,26 +307,22 @@
             </div>
 
             <!-- Rating Content -->
-            <div id="content-rating" class="hidden flex-col gap-8 py-4">
-                <div class="flex justify-between items-center bg-black/30 p-4 rounded-2xl border border-white/5">
-                    <span class="font-display text-white">Minimum Rating</span>
-                    <span id="rating-sheet-val" class="text-zomato-lightRed font-bold text-2xl font-display">3.5</span>
-                </div>
-                <input type="range" id="rating-sheet-input" min="1" max="5" step="0.1" value="3.5" class="w-full accent-zomato-red h-2 bg-white/10 rounded-lg appearance-none cursor-pointer">
+            <div id="content-rating" class="hidden flex-col gap-4">
+                <div id="rating-list" class="flex flex-col gap-2 max-h-60 overflow-y-auto pr-2 no-scrollbar"></div>
             </div>
             
             <!-- Cuisine Content -->
             <div id="content-cuisine" class="hidden flex-col gap-4">
                 <div class="relative flex items-center">
-                    <span class="material-symbols-outlined absolute left-4 text-text-muted">restaurant_menu</span>
-                    <input type="text" id="cuisine-sheet-input" class="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-zomato-red focus:ring-1 focus:ring-zomato-red outline-none transition-all placeholder-white/30" placeholder="e.g. Italian, Sushi, Cafe">
+                    <span class="material-symbols-outlined absolute left-4 text-text-muted">search</span>
+                    <input type="text" id="cuisine-search" class="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-zomato-red focus:ring-1 focus:ring-zomato-red outline-none transition-all placeholder-white/30" placeholder="Search cuisines...">
                 </div>
-                <p class="text-sm text-text-secondary mt-1 ml-2">Leave empty to discover any cuisine.</p>
+                <div id="cuisine-list" class="flex flex-col gap-2 max-h-60 overflow-y-auto mt-2 pr-2 no-scrollbar"></div>
             </div>
             
         </div>
         
-        <div class="p-6 pt-0 shrink-0">
+        <div class="p-6 pt-0 shrink-0 hidden">
             <button id="btn-apply-filter" class="w-full bg-zomato-red text-white py-4 rounded-2xl font-display font-bold text-lg hover:bg-zomato-darkRed transition-colors shadow-[0_4px_15px_rgba(226,55,68,0.4)]">
                 Apply Preferences
             </button>

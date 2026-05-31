@@ -25,6 +25,11 @@ async def get_locations():
     repo = get_repository()
     return {"locations": repo.unique_locations()}
 
+@app.get("/api/cuisines")
+async def get_cuisines():
+    repo = get_repository()
+    return {"cuisines": repo.unique_cuisines()}
+
 @app.post("/api/recommend")
 async def recommend(req: PreferencesRequest):
     try:
