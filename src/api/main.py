@@ -51,6 +51,6 @@ async def recommend(req: PreferencesRequest):
 static_dir = os.path.join(os.path.dirname(__file__), "../ui/static")
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def root():
     return FileResponse(os.path.join(static_dir, "index.html"))
