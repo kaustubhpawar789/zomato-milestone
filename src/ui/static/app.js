@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.addEventListener('click', () => {
                 state.location = loc;
                 renderLocationList(list);
+                applyPreferences(); // Auto-apply
             });
             locList.appendChild(div);
         });
@@ -154,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             circle.innerHTML = '<div class="w-3 h-3 bg-zomato-red rounded-full"></div>';
             
             state.budget = label.dataset.budget;
+            setTimeout(() => { applyPreferences(); }, 150); // Auto-apply with slight delay for ripple effect
         });
     });
 
@@ -166,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
         state.rating = val;
     });
 
-    // Apply Button
-    btnApply.addEventListener('click', () => {
+    // Apply Preferences Logic
+    function applyPreferences() {
         pillLabels.location.textContent = state.location;
         let budgetStr = state.budget === 'low' ? 'Accessible' : (state.budget === 'medium' ? 'Moderate' : 'Premium');
         pillLabels.budget.textContent = budgetStr;
@@ -178,7 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
         pillLabels.cuisine.textContent = cuisineRaw ? cuisineRaw : 'Any Cuisine';
         
         closeSheet();
-    });
+    }
+
+    // Apply Button (for manual apply, e.g., after typing cuisine or using rating slider)
+    btnApply.addEventListener('click', applyPreferences);
 
     // --- Recommendation Fetching ---
     const btnSearch = document.getElementById('btn-search');
